@@ -1,0 +1,28 @@
+routes:
+  - path: "/"
+    method: "GET"
+    response:
+      status: 200
+      body: "Hello, world!"
+      time: 1000
+      headers:
+        - key: "Content-Type"
+          value: "text/plain"
+  - path: "/api"
+    method: "POST"
+    response:
+      status: 201
+      body: "{\"message\": \"Created\"}"
+      time: 2000
+      headers:
+        - key: "Content-Type"
+          value: "application/json"
+  - path: "/error"
+    method: "GET"
+    response:
+      status: 500
+      body: "{\"message\": \"Internal Server Error\"}"
+      time: 3000
+      headers:
+        - key: "Content-Type"
+          value: "application/json"
