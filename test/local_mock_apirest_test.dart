@@ -6,8 +6,7 @@ import 'package:local_mock_apirest/local_mock_apirest.dart';
 void main() {
   group('Server Tests', () {
     final int port = 8080;
-    final file = File(
-        'test/mock.yaml'); // Asegúrate de que el archivo mock.yaml existe en esta ruta
+    final file = File('test/mock.yaml');
 
     setUp(() async {
       final options = Options(port: port, file: file);
