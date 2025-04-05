@@ -46,6 +46,6 @@ void startServer(int port, File file) async {
       .startServer(local_mock_apirest.Options(port: port, file: file));
 }
 
-void stopServer() {
-  local_mock_apirest.stopServer();
+Future<void> stopServer() async {
+  await local_mock_apirest.stopServer();
 }

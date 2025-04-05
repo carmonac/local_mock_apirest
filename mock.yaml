@@ -4,7 +4,7 @@ routes:
     response:
       status: 200
       body: "Hello, world!"
-      time: 1000
+      time: 100
       headers:
         - key: "Content-Type"
           value: "text/plain"

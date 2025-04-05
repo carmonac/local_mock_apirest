@@ -1,25 +1,20 @@
 # Local Mock API REST
 
-This project is a local mock server that uses a YAML file to define routes, methods, and responses. The server automatically restarts if the YAML file is modified.
-
-## Requirements
-
-- Dart SDK
+A local mock server that uses YAML files to define routes, methods, and responses. The server automatically restarts if the YAML file is modified.
 
 ## Installation
 
-1. Clone this repository:
+### Global Installation (Recommended)
 
-    ```bash
-    git clone <REPOSITORY_URL>
-    cd <DIRECTORY_NAME>
-    ```
+To install the package globally and use it as a command-line tool:
 
-2. Install the dependencies:
+```bash
+dart pub global activate local_mock_apirest
+```
 
-    ```bash
-    dart pub get
-    ```
+## Requirements
+
+- Dart SDK ^3.4.4
 
 ## Usage
 
@@ -28,13 +23,13 @@ This project is a local mock server that uses a YAML file to define routes, meth
 To start the server, use the following command:
 
 ```bash
-dart run bin/local_mock_apirest.dart --port <PORT> --path <PATH_TO_YAML_FILE>
+local_mock_apirest --port <PORT> --path <PATH_TO_YAML_FILE>
 ```
 
 For example:
 
 ```bash
-dart run bin/local_mock_apirest.dart --port 8080 --path ./mock.yaml
+local_mock_apirest --port 8080 --path ./mock.yaml
 ```
 
 ### YAML File
@@ -79,25 +74,6 @@ The server monitors the specified YAML file for changes. If the file is modified
 ### Stop the Server
 
 The server will automatically stop and restart when the YAML file is changed. If you want to stop the server manually, you can do so by pressing `Ctrl+C` in the terminal.
-
-## Development and Testing
-
-### Unit Tests
-
-This project includes unit tests to validate the server's behavior and the YAML file's validity.
-
-To run the tests, use the following command:
-
-```bash
-dart test
-```
-
-### Project Structure
-
-- `bin/local_mock_apirest.dart`: Server entry point.
-- `lib/local_mock_apirest.dart`: Main server logic.
-- `test/server_test.dart`: Unit tests for the server.
-- `test/mock.yaml`: Test YAML file.
 
 ## Contributions
 

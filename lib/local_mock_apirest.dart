@@ -6,7 +6,7 @@ import 'package:shelf/shelf_io.dart' as io;
 import 'package:yaml/yaml.dart';
 import 'dart:convert';
 
-late HttpServer _server;
+HttpServer? _server;
 
 class Options {
   int port;
@@ -35,8 +35,8 @@ Future<void> startServer(Options options) async {
     },
   );
 
-  _server = await io.serve(handler, 'localhost', options.port);
-  print('Server running on localhost:${_server.port}');
+  _server = await io.serve(handler, 'localhost', options.port, shared: true);
+  print('Server running on localhost:${_server!.port}');
 }
 
 Handler _createHandler(String path, String method, dynamic response) {
@@ -60,8 +60,12 @@ Handler _createHandler(String path, String method, dynamic response) {
   };
 }
 
-void stopServer() {
-  _server.close(force: true);
+Future<void> stopServer() async {
+  if (_server != null) {
+    await _server!.close(force: true);
+    _server = null;
+    await Future.delayed(Duration(milliseconds: 100));
+  }
 }
 
 Future<List<dynamic>> _loadRoutes(File file) async {

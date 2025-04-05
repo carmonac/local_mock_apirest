@@ -26,3 +26,12 @@ routes:
       headers:
         - key: "Content-Type"
           value: "application/json"
+  - path: "/invalid"
+    method: "GET"
+    response:
+      status: 401
+      body: "{\"message\": \"Invalid request\"}"
+      time: 1200
+      headers:
+        - key: "Content-Type"
+          value: "application/json"
