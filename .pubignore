@@ -1,0 +1,6 @@
+# Development specific files
+.vscode/
+.git/
+.gitignore
+.pubignore
+.DS_Store 
